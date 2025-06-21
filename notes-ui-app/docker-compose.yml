@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  notes_ui:
+    build:
+      context: .
+    container_name: notes_ui
+    ports:
+      - "3001:3001"
+    environment:
+      REACT_APP_API_BASE: http://app:3000/api/notes
+    networks:
+    - notes-network
+
+networks:
+  notes-network:
